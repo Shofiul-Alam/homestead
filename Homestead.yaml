@@ -1,0 +1,43 @@
+---
+ip: 192.168.10.10
+memory: 4096
+cpus: 2
+provider: hyperv
+
+authorize: ~/.ssh/id_rsa.pub
+
+# keys:
+#     - ~/.ssh/id_rsa
+
+folders:
+    - map: C:/Developments/webnets-marketplace-softwares/webnets-marketplace-api
+      to: /home/vagrant/webnetsmarketplace
+    - map: C:/Developments/webnets-hire
+      to: /home/vagrant/webnetshire
+    - map: C:/Developments/laravel-vue
+      to: /home/vagrant/laravelvue
+
+sites:
+    - map: dev.webnetsmarketplace
+      to: /home/vagrant/webnetsmarketplace/public
+    - map: dev.webnetshire
+      to: /home/vagrant/webnetshire/public
+    - map: dev.laravelvue
+      to: /home/vagrant/laravelvue/public
+
+databases:
+    - webnets_api
+    - webnets_hire
+    - laravel_vue
+
+features:
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
